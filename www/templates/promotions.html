@@ -1,0 +1,36 @@
+﻿<ion-view title="Promotions" cache-view="false">
+    <ion-content>
+		<!--<label class="item item-input">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" placeholder="Search Promotions" ng-model="query">
+		</label>
+        <div class="list">
+			<div class="item item-divider">
+				Wholesome Foods
+			</div>
+			<ion-item ng-repeat="promo in promos|filter:query" class="item item-thumbnail-left" href="#/product/{{promo.url}}">
+		
+				<img src="img/{{promo.product}}.png">
+				<h2>{{promo.product}}</h2>
+				<span class="promoDesc">{{promo.description}}</span><br/>
+				<span class="expDt">Expires: {{promo.expDt}}</span>
+	
+			</ion-item>
+		</div>-->
+		<ion-list>
+			<div ng-repeat="groupedPair in groupedPairs track by groupedPair[0]">
+				<ion-item class="item-divider">
+					{{groupedPair[0]}}
+				</ion-item>
+				<ion-item ng-repeat="item in groupedPair[1] track by item.name" href="#/app/{{item.storeName}}/{{item.name}}">
+					<img src="img/{{item.storeName}}/{{item.name}}.png" class="cartImage">
+					<div style="float: left;">
+						<h2>{{item.name}}</h2>
+						<p><b>Sale Price: ${{item.price}}</b></p>
+						<p>Original Price: ${{item.originalPrice}}</p>
+					</div>
+				</ion-item>
+			</div>
+		</ion-list>
+    </ion-content>
+</ion-view>

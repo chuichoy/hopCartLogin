@@ -1,0 +1,20 @@
+<ion-view title="HopCart">
+    <ion-content has-header="true" has-tabs="true">
+		<label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" ng-model="query" placeholder="Search HopCart">
+		</label>
+		<div id="map" data-tap-disabled="true"></div>
+		<p>
+            <div class="storesList">
+                <ion-item ng-repeat="store in stores | orderBy: 'distance' | filter:query" href="#/app/store/{{store.name}}">
+                    <div class="storesList">
+                        <span class="store">{{store.name}}<br>{{store.specialty}}</span>
+                        <span class="distance">{{store.distance}} mi</span>
+                        <span id="status" class="{{store.status == 'Open' ? 'open' : 'closed'}}">{{store.status}}</span>
+                    </div>
+                </ion-item>
+            </div>
+        </p>
+    </ion-content>
+</ion-view>

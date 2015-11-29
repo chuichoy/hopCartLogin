@@ -1,0 +1,35 @@
+<ion-view title="{{store.name}}" cache-view="false">
+    <ion-content has-header="true">
+		<div class="list">
+            <ion-item class="item item-button-right" style="padding: 0;" href="#/app/details/{{store.name}}">
+                {{store.address}}<br />
+                Specialty: {{store.specialty}}
+                <button class="button button-clear ion-chevron-right storeDescArrow"></button>
+            </ion-item>
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" ng-model="query" placeholder="Search {{store.name}}">
+            </label>
+        </div>
+		
+		<div ng-repeat="groupedProduct in groupedProducts">
+			<div class = "list bar">
+				<div class = "col">
+					<h4> {{groupedProduct[0]}} </h4>
+				</div>
+				<div class = "col text-center">
+					<h6> {{groupedProduct[1].length}} items </h6>
+				</div>          
+				<div class="col text-right">
+					<button class="button button-calm">View all</button>
+				</div>        
+			</div>
+			<div class = "col col-50" style="text-align: center; float: left;" ng-repeat="item in groupedProduct[1] | filter:query">
+				<a class="item item-thumbnail-top" href="#/app/{{store.name}}/{{item.name}}">
+					<img src="img/{{item.storeName}}/{{item.name}}.png" width="80" height = "80"/>
+					<h2>{{item.name}}</h2>
+					<p>${{item.price}} <span ng-if="item.originalPrice != null"><span style="text-decoration: line-through;">${{item.originalPrice}}</span></span></p>
+				</a>
+			</div>
+    </ion-content>
+</ion-view>

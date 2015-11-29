@@ -1,0 +1,23 @@
+﻿<ion-view title="{{store.name}}">
+   <ion-content>
+        <div class="list">
+            <div class="item item-divider">
+                General Information
+            </div>
+            <div class="item">
+                <span class="description">Hours</span><br/>
+                {{store.hours}}
+            </div>
+            <div class="item">
+                <span class="description">Phone</span><br/> 
+                {{store.phone}}
+            </div>
+            <div class="item item-divider">
+                Photos
+            </div>
+            <div class="item" style="text-align: center;">
+                <img src="img/{{store.name}}/{{store.name}}.png" style="width: 100%;">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

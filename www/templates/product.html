@@ -1,0 +1,51 @@
+﻿<ion-view title="{{storeName}}">
+    <ion-content has-header="true" class="padding">
+		<div class="productDesc">
+            <h3>{{product.name}}</h3><br />
+            <img src="img/{{product.storeName}}/{{product.name}}.png" /><br/>
+            ${{product.price}}<span ng-if="product.originalPrice != null"> <span style="text-decoration: line-through;">${{product.originalPrice}}</span></span><br/>
+            <p>
+                <!--<div class="list">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Qty:
+                        </div>
+                        <select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </label>
+                </div>-->
+				
+				<table style="width: 150px; margin: 0 auto;">
+					<tr>
+						<td>
+							<button class="button button-light ion-plus-round" ng-click="increase()"></button>
+						</td>
+						<td>
+							<button class="button button-light" disabled>{{product.purchaseQuantity}}</button>
+						</td>
+						<td>
+							<button class="button button-light ion-minus-round" ng-click="decrease()"></button>
+						</td>
+					</tr>
+				</table>
+				
+				<br>
+				
+                <div class="list">
+                    <label class="item item-input">
+                        <textarea id="special" placeholder="Special requests (ex. green bananas)"></textarea>
+                    </label>
+                </div>
+
+                <a href="" ng-click="add()" id="add" class="button button-block button-calm">
+                    Add to Cart
+                </a>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

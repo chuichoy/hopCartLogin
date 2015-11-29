@@ -1,0 +1,40 @@
+<ion-side-menus enable-menu-with-back-views="false">
+	<ion-side-menu-content>
+		<ion-nav-bar class="bar-calm">
+			<ion-nav-back-button>
+			</ion-nav-back-button>
+
+			<ion-nav-buttons side="left">
+				<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+			</ion-nav-buttons>
+			
+			<ion-nav-buttons side="right">
+					<a href="#/app/cart" class="button button-icon button-clear ion-ios7-cart-outline"></a>
+					<span style="float: left; position: absolute; left: 15px; top: 4px; font-size: 11px; font-weight: bold;">{{cartAmount}}</span>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+		<ion-nav-view name="menuContent"></ion-nav-view>
+	</ion-side-menu-content>
+
+	<ion-side-menu side="left">
+		<ion-header-bar class="bar-calm">
+			<h1 class="title">Menu</h1>
+		</ion-header-bar>
+		<ion-content>
+			<ion-list>
+				<span ng-if="user != null">
+					<div class="padding">
+						Welcome, <b>{{user.attributes.username}}</b>!
+					</div>
+				</span>
+				
+				<ion-item nav-clear menu-close ui-sref="app.home"><i class="icon ion-ios7-home-outline placeholder-icon"></i> Home</ion-item>
+				<ion-item nav-clear menu-close ui-sref="app.list"><i class="icon ion-clock placeholder-icon"></i> Recent Orders</ion-item>
+				<ion-item nav-clear menu-close ui-sref="app.promos"><i class="icon ion-bonfire placeholder-icon"></i> Promotions</ion-item>
+				<ion-item nav-clear menu-close ui-sref="app.login" ng-hide="isLoggedIn">Login</ion-item>
+				<ion-item nav-clear menu-close ui-sref="app.register" ng-hide="isLoggedIn">Register</ion-item>
+				<ion-item nav-clear menu-close ng-click="logout()" ng-show="isLoggedIn">Logout</ion-item>
+			</ion-list>
+		</ion-content>
+	</ion-side-menu>
+</ion-side-menus>

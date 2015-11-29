@@ -1,0 +1,29 @@
+﻿<ion-view title="Payment" cache-view="false">
+    <ion-content has-header="true">
+		<div class="list">
+			<label class="item item-input">
+				<input type="text" placeholder="Cardholder Name">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Credit Card Number">
+				<i class="icon ion-card padding placeholder-icon"></i> 
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="MM/YYYY">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="CVC">
+			</label>
+		</div>
+		
+		<div style="text-align: center;">
+			<h4>Your Total for {{cart.length}} Items is : $<span id="total">{{total}}</span></h4>
+		</div>
+		
+		<div class="padding">
+			<a class="button button-block button-balanced" ng-click="submit({{cart}}, {{total}})">
+				Place Order
+			</a>
+		</div>
+    </ion-content>
+</ion-view>

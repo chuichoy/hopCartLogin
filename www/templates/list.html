@@ -1,0 +1,44 @@
+<ion-view title="Recent Orders" cache-view="false">
+    <ion-content has-header="true" has-tabs="true">
+        <span ng-if="user != null">
+			<span ng-if="recentProducts.length > 0">
+				<ion-list>
+					<div ng-repeat="groupedPair in groupedPairs track by groupedPair[0]">
+						<ion-item class="item-divider">
+							{{groupedPair[0]}}
+						</ion-item>
+						<ion-item ng-repeat="item in groupedPair[1] track by item.name">
+							<img src="img/{{item.storeName}}/{{item.name}}.png" class="cartImage">
+							<div style="float: left;">
+								<h2>{{item.name}}</h2>
+								<p>${{item.price}}</p>
+								<table style="width: 80px; margin: 0 auto; float: left;">
+									<tr>
+										<td>
+											<button class="button button-small button-light ion-plus-round" ng-click="increase('{{item.name}}', '{{item.storeName}}')"></button>
+										</td>
+										<td>
+											<button class="button button-small button-light" disabled>{{item.purchaseQuantity}}</button>
+										</td>
+										<td>
+											<button class="button button-small button-light ion-minus-round" ng-click="decrease('{{item.name}}', '{{item.storeName}}')"></button>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<a ng-click="add('{{item.name}}', '{{item.storeName}}')" class="button button-calm" style="font-size: 14px; float: right; margin-top: 20px;">
+								Add to Cart
+							</a>
+						</ion-item>
+					</div>
+				</ion-list>
+			</span>
+			<span ng-if="recentProducts.length === 0">
+				<div class="padding">You have no recent orders!</div>
+			</span>
+		</span>
+	    <span ng-if="user === null">
+			<div class="padding">Register with us to access order history!</div>
+		</span>
+    </ion-content>
+</ion-view>
